@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/1.unity
-    guid: e61e0ef3be36b364697814612b1062db
+    path: Assets/Scenes/CristalRush.unity
+    guid: d6d631818f3fd88428adbeff6f34a565
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

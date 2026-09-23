@@ -1,25 +1,22 @@
 using UnityEngine;
 
-namespace CristalRush
+public class Collectible : MonoBehaviour
 {
-    public class Collectible : MonoBehaviour
+    public float pickupRadius = 1.2f;
+
+    bool collected;
+
+    void Update()
     {
-        public float pickupRadius = 1.2f;
+        GameManager gm = GameManager.Instance;
+        if (collected || gm == null || gm.State != GameState.Playing || gm.player == null) return;
 
-        bool collected;
-
-        void Update()
+        float dist = Vector3.Distance(transform.position, gm.player.transform.position + Vector3.up);
+        if (dist <= pickupRadius)
         {
-            GameManager gm = GameManager.Instance;
-            if (collected || gm == null || gm.State != GameState.Playing || gm.player == null) return;
-
-            float dist = Vector3.Distance(transform.position, gm.player.transform.position + Vector3.up);
-            if (dist <= pickupRadius)
-            {
-                collected = true;
-                gm.CollectCrystal();
-                gameObject.SetActive(false);
-            }
+            collected = true;
+            gm.CollectCrystal();
+            gameObject.SetActive(false);
         }
     }
 }
